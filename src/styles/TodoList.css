@@ -1,0 +1,10 @@
+.Wrapper {
+  width: 590px;
+  height: 700px;
+}
+.date-red {
+  color: #ff0000;
+}
+.date-blue {
+  color: #3fa2f6;
+}
