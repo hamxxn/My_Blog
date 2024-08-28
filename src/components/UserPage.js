@@ -4,7 +4,14 @@ import SettingBtn from "../assets/settingBtn.png";
 import FriendBtn from "../assets/friendBtn.png";
 import ShareBtn from "../assets/shareBtn.png";
 import PostImg from "../assets/postImg.jpg";
+import BackgroundImg from "../assets/backgroundImg.jpg";
+import { useNavigate } from "react-router-dom";
 function Profile(prop) {
+  const navigate = useNavigate();
+
+  const goToCreatePostPage = () => {
+    navigate("/create-post");
+  };
   return (
     <ProfileWrapper>
       <div>
@@ -28,7 +35,7 @@ function Profile(prop) {
             <img alt="setting" src={SettingBtn} />
             <p>홈편집</p>
           </button>
-          <button>
+          <button onClick={goToCreatePostPage}>
             <p>글쓰기</p>
           </button>
           <button>
@@ -73,7 +80,7 @@ function AllContent() {
     </AllPost>
   );
 }
-function Contents() {
+function Contents(prop) {
   return (
     <ContentBox>
       <PopularWrapper>
@@ -84,7 +91,7 @@ function Contents() {
         </div>
       </PopularWrapper>
       <AllWrapper>
-        <p>전체글</p>
+        <p>전체글 ({prop.postNums})</p>
         <AllContent />
         <AllContent />
       </AllWrapper>
@@ -99,13 +106,17 @@ const AllPost = styled.div`
   > div.post-wrapper {
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
     > img {
       width: 300px;
       height: 300px;
       margin-right: 20px;
     }
     > div.post-details {
+      margin-top: -10px;
       > p.post-title {
+        height: 20px;
+        line-height: 20px;
         font-size: 25px;
         font-weight: 800;
       }
@@ -251,7 +262,10 @@ const BlogIntro = styled.div`
 const ProfileWrapper = styled.div`
   width: 100%;
   height: 500px;
-  background-color: #b2b2b2;
+  background-image: url(${BackgroundImg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -268,7 +282,7 @@ function MyPage(prop) {
   return (
     <>
       <Profile userName={prop.userName}></Profile>
-      <Contents></Contents>
+      <Contents postNums="3"></Contents>
     </>
   );
 }

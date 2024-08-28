@@ -1,0 +1,105 @@
+form {
+  width: 100%;
+  margin-top: 90px;
+  overflow: scroll;
+  padding-bottom: 80px;
+}
+input,
+textarea {
+  display: block;
+  outline: none;
+  border: 0;
+  padding-left: 10px;
+  width: 60%;
+  margin: auto;
+}
+footer {
+  position: fixed;
+  bottom: 0px;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: whitesmoke;
+  align-items: center;
+}
+.title-input {
+  height: 100px;
+  font-size: 25px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.main-content-input {
+  height: 550px;
+  padding-top: 50px;
+  font-size: 16px;
+}
+.tag-input {
+  height: 100px;
+  padding-top: 20px;
+}
+button {
+  border: none;
+  height: 50px;
+  margin: 0px 20px;
+  border-radius: 10px;
+}
+.draft-button {
+  width: 130px;
+  background-color: #ecffe6;
+  color: black;
+}
+.submit-button {
+  width: 100px;
+  background-color: black;
+  color: #ecffe6;
+  margin-right: 150px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.draft-popup {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  transform: translateX(-50%);
+  background-color: whitesmoke;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+.draft-popup.show {
+  animation: slideDown 0.3s forwards;
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+}
+
+.draft-popup.hide {
+  animation: slideUp 0.3s forwards;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}

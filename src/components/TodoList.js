@@ -196,15 +196,15 @@ function TodoList() {
   return (
     <ToDoContainer>
       <ToDo>
-        <p>하</p>
+        <p>운동하기</p>
         <div></div>
       </ToDo>
       <ToDo>
-        <p>하</p>
+        <p>밥먹기..</p>
         <div></div>
       </ToDo>
       <ToDo>
-        <p>하</p>
+        <p>학교가셔야지..</p>
         <div></div>
       </ToDo>
     </ToDoContainer>
